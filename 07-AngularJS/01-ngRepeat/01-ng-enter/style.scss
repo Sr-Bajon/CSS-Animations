@@ -1,0 +1,45 @@
+.lista {
+  border: solid black;
+  width: 25%;
+  background-color: green;
+  transition-property: background-color;
+  transition-duration: 1s;
+}
+
+.lista:hover {
+  background-color: blueviolet;
+}
+
+.lista.ng-enter {
+  // INICIAL
+
+  //transform: scale(3);
+  background-color: blue;
+  //transition: all ease-in 3s;
+  //transform: rotate(-20deg);
+  //border-color: red;
+  //opacity: 1;
+  //transform: scale(2);
+  //background-color: red;
+  //transform: translateY(100%);
+  //transform: translateX(100%);
+  transform: translateX(100%) rotate(50deg);
+  opacity: .5;
+  transition: all ease 2s;
+
+}
+
+.lista.ng-enter-active {
+  // FINAL
+
+  //transform: scale(1.5);
+  background-color: red;
+  //background-color: red;
+  //transition: all linear 3s;
+  //transform: rotate(20deg);
+  //border-color: blue;
+  //transform: scale(.5);
+  //transition: all ease-in-out 2s;
+  opacity: 1;
+  transform: translateX(0%);
+}

@@ -1,0 +1,22 @@
+.lista {
+  border: solid black;
+  width: 25%;
+  background-color: green;
+  transition-property: background-color;
+  transition-duration: 1s; }
+
+.lista:hover {
+  background-color: blueviolet; }
+
+.lista.ng-enter {
+  background-color: blue;
+  transform: translateX(100%) rotate(50deg);
+  opacity: .5;
+  transition: all ease 2s; }
+
+.lista.ng-enter-active {
+  background-color: red;
+  opacity: 1;
+  transform: translateX(0%); }
+
+/*# sourceMappingURL=style.css.map */

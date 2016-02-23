@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" ng-app="AnimandoApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body ng-controller="MyController as myCtrl">
+
+<button ng-click="myCtrl.add()">Añade uno</button>
+<button ng-click="myCtrl.aTope()">A tope!</button>
+<ul>
+  <li class="lista" ng-repeat="item in myCtrl.list track by item.id">
+    {{item.name}}
+  </li>
+</ul>
+
+
+<script src="node_modules/angular/angular.js"
+        type="application/javascript"></script>
+<script src="node_modules/angular-animate/angular-animate.js"
+        type="application/javascript"></script>
+<script>
+
+  (function () {
+    'use strict';
+
+    angular.module('AnimandoApp', ['ngAnimate']);
+
+    angular.module('AnimandoApp').controller('MyController', ['$interval',
+      function ($interval) {
+        var myCtrl = this;
+
+        myCtrl.list = [];
+
+        var count  = 0;
+        myCtrl.add = function () {
+          count += 1;
+          myCtrl.list.unshift({
+            id  : count,
+            name: Math.floor(Math.random() * 100000)
+          });
+        };
+
+        for (var i = 0; i < 10; i++) {
+          myCtrl.add();
+        }
+
+        myCtrl.aTope = function () {
+          if (myCtrl.cancel) {
+            $interval.cancel(myCtrl.cancel);
+            myCtrl.cancel = null;
+          } else {
+            myCtrl.cancel = $interval(function () {
+              myCtrl.add();
+              console.log('Add one, id = %s', count);
+            }, 300);
+          }
+        }
+
+      }])
+
+
+  })();
+
+
+</script>
+</body>
+</html>
